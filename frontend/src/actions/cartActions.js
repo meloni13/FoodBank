@@ -9,7 +9,7 @@ import {
 // get the product id and the quantity of the item to add to the cart
 export const addItem = (id, qty) => async (dispatch, getState) => {
 	try {
-		const { data } = await axios.get(`/api/products/${id}`);
+		const { data } = await axios.get(`https://food-bank.vercel.app/api/products/${id}`);
 		dispatch({
 			type: CART_ADD_ITEM,
 			payload: {
