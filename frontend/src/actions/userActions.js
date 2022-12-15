@@ -53,7 +53,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 		};
 
 		const { data } = await axios.post(
-			'/api/users/login',
+			'https://food-bank.vercel.app/api/users/login',
 			{ email, password },
 			config
 		);
@@ -104,7 +104,7 @@ export const refreshLogin = (email) => async (dispatch, getState) => {
 			};
 
 			const { data } = await axios.post(
-				'/api/users/refresh',
+				'https://food-bank.vercel.app/api/users/refresh',
 				{
 					email,
 					token: userInfo.refreshToken,
@@ -162,7 +162,7 @@ export const registerUser = (name, email, password) => async (dispatch) => {
 		};
 
 		const { data } = await axios.post(
-			'/api/users/',
+			'https://food-bank.vercel.app/api/users/',
 			{ name, email, password },
 			config
 		);
@@ -190,7 +190,7 @@ export const sendVerficationEmail = (email) => async (dispatch) => {
 		};
 
 		const { data } = await axios.post(
-			'/api/users/confirm',
+			'https://food-bank.vercel.app/api/users/confirm',
 			{ email },
 			config
 		);
@@ -213,7 +213,7 @@ export const confirmUser =
 		try {
 			dispatch({ type: USER_CONFIRM_REQUEST });
 			const { data } = await axios.get(
-				`/api/users/confirm/${emailToken}`
+				`https://food-bank.vercel.app/api/users/confirm/${emailToken}`
 			);
 
 			// remove variable meant to prompt the user for email verification
@@ -256,7 +256,7 @@ export const resetUserPassword =
 			};
 
 			const { data } = await axios.put(
-				'/api/users/reset',
+				'https://food-bank.vercel.app/api/users/reset',
 				{ passwordToken, password },
 				config
 			);
@@ -290,7 +290,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
 			};
 
 			let { data } = await axios.post(
-				'/api/users/passport/data/',
+				'https://food-bank.vercel.app/api/users/passport/data/',
 				{ id },
 				config
 			);
@@ -347,7 +347,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 			  };
 
 		const isSocial = userInfo.isSocialLogin;
-		const { data } = await axios.put('/api/users/profile', user, config);
+		const { data } = await axios.put('https://food-bank.vercel.app/api/users/profile', user, config);
 
 		dispatch({
 			type: USER_PROFILE_UPDATE_SUCCESS,
@@ -400,7 +400,7 @@ export const listAllUsers =
 				  };
 
 			const { data } = await axios.get(
-				`/api/users?pageNumber=${pageNumber}`,
+				`https://food-bank.vercel.app/api/users?pageNumber=${pageNumber}`,
 				config
 			);
 
@@ -438,7 +438,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
 					},
 			  };
 
-		await axios.delete(`/api/users/${id}`, config);
+		await axios.delete(`https://food-bank.vercel.app/api/users/${id}`, config);
 
 		dispatch({ type: USER_DELETE_SUCCESS });
 	} catch (error) {
@@ -477,7 +477,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
 
 		const isSocial = userInfo.isSocialLogin;
 		const { data } = await axios.put(
-			`/api/users/${user._id}`,
+			`https://food-bank.vercel.app/api/users/${user._id}`,
 			user,
 			config
 		);
