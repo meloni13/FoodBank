@@ -31,7 +31,7 @@ export const listProducts =
 			dispatch({ type: PRODUCT_LIST_REQUEST });
 
 			const { data } = await axios.get(
-				`https://fbbackend-production.up.railway.app/api/products?keyword=${keyword}&pageNumber=${pageNumber}&pageSize=${pageSize}`
+				`/api/products?keyword=${keyword}&pageNumber=${pageNumber}&pageSize=${pageSize}`
 			);
 
 			console.log(data)
@@ -53,7 +53,7 @@ export const listProductDetails = (id) => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-		const { data } = await axios.get(`https://fbbackend-production.up.railway.app/api/products/${id}`);
+		const { data } = await axios.get(`/api/products/${id}`);
 
 		dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
 	} catch (error) {
@@ -89,7 +89,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
 					},
 			  };
 
-		const { data } = await axios.delete(`https://fbbackend-production.up.railway.app/api/products/${id}`, config);
+		const { data } = await axios.delete(`/api/products/${id}`, config);
 
 		data && dispatch({ type: PRODUCT_DELETE_SUCCESS });
 	} catch (error) {
@@ -127,7 +127,7 @@ export const createProduct = (product) => async (dispatch, getState) => {
 					},
 			  };
 
-		const { data } = await axios.post(`https://food-bank.vercel.app/api/products/`, product, config);
+		const { data } = await axios.post(`/api/products/`, product, config);
 
 		dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data });
 	} catch (error) {
@@ -167,7 +167,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
 			  };
 
 		const { data } = await axios.put(
-			`https://fbbackend-production.up.railway.app/api/products/${product._id}`,
+			`/api/products/${product._id}`,
 			product,
 			config
 		);
@@ -210,7 +210,7 @@ export const createProductReview =
 				  };
 
 			await axios.post(
-				`https://fbbackend-production.up.railway.app/api/products/${productID}/reviews`,
+				`/api/products/${productID}/reviews`,
 				review,
 				config
 			);
@@ -232,7 +232,7 @@ export const getTopRatedProducts = () => async (dispatch) => {
 	try {
 		dispatch({ type: PRODUCT_TOP_RATED_REQUEST });
 
-		const { data } = await axios.get('https://fbbackend-production.up.railway.app/api/products/top');
+		const { data } = await axios.get('/api/products/top');
 
 		dispatch({ type: PRODUCT_TOP_RATED_SUCCESS, payload: data });
 	} catch (error) {
