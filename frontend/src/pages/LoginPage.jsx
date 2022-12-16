@@ -91,7 +91,7 @@ const LoginPage = ({ location, history }) => {
 			if (isSuccess) {
 				// get user data and dispatch login success
 				axios
-					.post('https://fbbackend-production.up.railway.app/api/users/passport/data', {
+					.post('/api/users/passport/data', {
 						id,
 					})
 					.then(({ data }) => {
@@ -170,7 +170,7 @@ const LoginPage = ({ location, history }) => {
 		};
 
 		const { data } = await axios.post(
-			'https://fbbackend-production.up.railway.app/api/users/reset',
+			'/api/users/reset',
 			{ email },
 			config
 		);
