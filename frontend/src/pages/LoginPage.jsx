@@ -91,7 +91,7 @@ const LoginPage = ({ location, history }) => {
 			if (isSuccess) {
 				// get user data and dispatch login success
 				axios
-					.post('https://food-bank.vercel.app/api/users/passport/data', {
+					.post('https://fbbackend-production.up.railway.app/api/users/passport/data', {
 						id,
 					})
 					.then(({ data }) => {
@@ -170,7 +170,7 @@ const LoginPage = ({ location, history }) => {
 		};
 
 		const { data } = await axios.post(
-			'https://food-bank.vercel.app/api/users/reset',
+			'https://fbbackend-production.up.railway.app/api/users/reset',
 			{ email },
 			config
 		);
