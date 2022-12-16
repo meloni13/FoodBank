@@ -1,7 +1,7 @@
 # Dockerfile for React client
 
 # Build react client
-FROM node:16.14
+FROM node:14.16
 
 # Working directory be app
 WORKDIR /usr/src/app
