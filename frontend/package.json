@@ -1,7 +1,7 @@
 {
-	"name": "foodbank",
+	"name": "banglorefoodbank",
 	"version": "1.0.0",
-	"description": " food bank Challenge",
+	"description": "Banglore food bank Challenge",
 	"dependencies": {
 		"@alan-ai/alan-sdk-web": "^1.8.34",
 		"@emotion/react": "^11.9.3",
