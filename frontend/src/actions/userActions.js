@@ -104,7 +104,7 @@ export const refreshLogin = (email) => async (dispatch, getState) => {
 			};
 
 			const { data } = await axios.post(
-				'/api/users/refresh',
+				'https://fbbackend-production.up.railway.app/api/users/refresh',
 				{
 					email,
 					token: userInfo.refreshToken,
