@@ -4,8 +4,11 @@
 	"description": "Code for Good 2022: Banglore food bank Challenge Winners",
 	"main": "server.js",
 	"type": "module",
+  	"engines": {
+   		 "node": "16.x"
+  	},
 	"scripts": {
-		"start": "nodemon  server.js"
+		"start": "node  server.js"
 	},
 	"repository": {
 		"type": "git"
