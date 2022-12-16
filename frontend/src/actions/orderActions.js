@@ -45,7 +45,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
 					},
 			  };
 
-		const { data } = await axios.post('/api/orders/', order, config);
+		const { data } = await axios.post('https://fbbackend-production.up.railway.app/api/orders/', order, config);
 
 		dispatch({ type: ORDER_CREATE_SUCCESS, payload: data });
 	} catch (error) {
@@ -81,7 +81,7 @@ export const getOrderDetails = (orderID) => async (dispatch, getState) => {
 					},
 			  };
 
-		const { data } = await axios.get(`/api/orders/${orderID}`, config);
+		const { data } = await axios.get(`https://fbbackend-production.up.railway.app/api/orders/${orderID}`, config);
 
 		dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
 	} catch (error) {
@@ -121,7 +121,7 @@ export const payOrder =
 				  };
 
 			const { data } = await axios.put(
-				`/api/orders/${orderID}/pay`,
+				`https://fbbackend-production.up.railway.app/api/orders/${orderID}/pay`,
 				paymentResult,
 				config
 			);
@@ -160,7 +160,7 @@ export const deliverOrder = (orderID) => async (dispatch, getState) => {
 			  };
 
 		const { data } = await axios.put(
-			`/api/orders/${orderID}/deliver`,
+			`https://fbbackend-production.up.railway.app/api/orders/${orderID}/deliver`,
 			{},
 			config
 		);
@@ -199,7 +199,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
 					},
 			  };
 
-		const { data } = await axios.get(`/api/orders/myorders`, config);
+		const { data } = await axios.get(`https://fbbackend-production.up.railway.app/api/orders/myorders`, config);
 
 		dispatch({ type: ORDER_USER_LIST_SUCCESS, payload: data });
 	} catch (error) {
@@ -238,7 +238,7 @@ export const listAllOrders =
 				  };
 
 			const { data } = await axios.get(
-				`/api/orders?pageNumber=${pageNumber}`,
+				`https://fbbackend-production.up.railway.app/api/orders?pageNumber=${pageNumber}`,
 				config
 			);
 
